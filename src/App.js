@@ -1,32 +1,40 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Table } from "semantic-ui-react";
 import logo from './logo.svg';
 import './App.css';
+
+import { Beer } from "./Beer.js";
 import { getBeers } from "./utils.js";
 
 function App() {
+  const [beers, setBeers] = useState([]);
+
   useEffect(() => {
+    // this function is because useEffect's function cannot be async by itself.
     const init = async () => {
-      const beers = await getBeers();
+      const response = await getBeers();
       console.log(beers);
+      setBeers(response);
     };
-    init();
-  })
+    if(beers.length === 0) {
+      init();
+    }
+  }, [beers])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <Table celled>
+    <Table.Header>
+      <Table.Row>
+        <Table.HeaderCell>Name</Table.HeaderCell>
+        <Table.HeaderCell>Picture</Table.HeaderCell>
+        <Table.HeaderCell>Brew date</Table.HeaderCell>
+      </Table.Row>
+    </Table.Header>
+    <Table.Body>
+      {beers.map((beer) => <Beer beer={beer}/>)}
+    </Table.Body>
+    </Table>
+
     </div>
   );
 }
