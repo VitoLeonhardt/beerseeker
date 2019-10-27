@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     // this function is because useEffect's function cannot be async by itself.
     const init = async () => {
-      const response = await getBeers();
+      const response = await getBeers({ page: 1, per_page: 10 });
       console.log(beers);
       setBeers(response);
     };
