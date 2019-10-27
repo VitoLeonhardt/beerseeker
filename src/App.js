@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Table } from "semantic-ui-react";
-import logo from './logo.svg';
+import { Table, Image } from "semantic-ui-react";
+import logo from "./beerseker.jpg";
 import './App.css';
 
 import { Beer } from "./Beer.js";
@@ -22,19 +22,19 @@ function App() {
   }, [beers])
   return (
     <div>
-    <Table celled>
-    <Table.Header>
-      <Table.Row>
-        <Table.HeaderCell>Name</Table.HeaderCell>
-        <Table.HeaderCell>Picture</Table.HeaderCell>
-        <Table.HeaderCell>Brew date</Table.HeaderCell>
-      </Table.Row>
-    </Table.Header>
-    <Table.Body>
-      {beers.map((beer) => <Beer beer={beer}/>)}
-    </Table.Body>
-    </Table>
-
+      <Image className="logo-image" src={logo}/>
+      <Table celled selectable>
+      <Table.Header>
+        <Table.Row>
+          <Table.HeaderCell>Name</Table.HeaderCell>
+          <Table.HeaderCell>Picture</Table.HeaderCell>
+          <Table.HeaderCell>Brew date</Table.HeaderCell>
+        </Table.Row>
+      </Table.Header>
+      <Table.Body>
+        {beers.map((beer) => <Beer beer={beer}/>)}
+      </Table.Body>
+      </Table>
     </div>
   );
 }

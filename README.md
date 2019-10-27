@@ -1,68 +1,45 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Frontend Remote Task
 
-## Available Scripts
+## Context
 
-In the project directory, you can run:
+Beer lovers love to discover new beers. Help them by building a website where they easily can find and explore new exciting beer creations.
+The list of beers should be based on the PUNK API (https://punkapi.com/documentation/v2)
 
-### `npm start`
+## Product Requirements
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+As a beer lover I want to:
+list beers from the PUNK API with name, image and first brew date displayed.
+see the first 10 beers, with the ability to paginate (10 beers per page).
+see the total amount of beers. - this doesn't seem to be possible, since page size is 80 at maximum and no endpoint for all beers
+filter the beers by name.
+filter the beers by first brew date.
+see additional information of a single beer (description, abv, volume, food pairings)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Your Mission
 
-### `npm test`
+Create the React application that satisfies all must-have requirements above, plus any nice-to-have you wish to include.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+For that, you’ll need to make requests to a publicly-available [API] (https://punkapi.com/documentation/v2) to get JSON content.
 
-### `npm run build`
+The API is known to have some limitations. If you are not able to implement a particular requirement, please provide a description of what and why you could not implements.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Optional: Host the website on the service of your choice (zeit, Heroku, AWS, GCloud, ...)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Tech Requirements
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+React
+Tests: Jest + react-testing-library / enzyme
+Code Linter
 
-### `npm run eject`
+## Instructions
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Create your own private Git repository 
+Build a performant, clean and well-structured solution
+Commit early and often. We want to be able to check your progress
+Optional: Make the app public. Deploy it using the service of your choice
+Please complete your working solution within 14 days of receiving this challenge, and be sure to notify us when it is ready for review.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Deliverables
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Link to your Git repository
+Optional: Link to the deployed website
