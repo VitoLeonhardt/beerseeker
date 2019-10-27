@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Image, Pagination, Input } from "semantic-ui-react";
+import { DateInput } from "semantic-ui-calendar-react";
 import logo from "./beerseker.jpg";
 import './App.css';
 
@@ -35,7 +36,12 @@ function App() {
   return (
     <div>
       <Image className="logo-image" src={logo}/>
-      <Input placeholder="Search by name" onChange={(event, { value }) => setBeerName(value !== "" ? value : null)} />
+      <Input placeholder="Search by name" value={beerName} onChange={(event, { value }) => setBeerName(value !== "" ? value : null)} />
+      <DateInput 
+        placeholder="Brew date before/after"
+        value={brewDate}
+        onChange={(event, { value }) => setBrewDate(value)}
+      />
       <Table celled selectable>
       <Table.Header>
         <Table.Row>
