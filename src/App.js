@@ -6,6 +6,7 @@ import './App.css';
 
 import { Beer } from "./Beer.js";
 import { getBeers } from "./utils.js";
+import { BeerDetails } from "./BeerDetails.js"
 
 function App() {
   const [beers, setBeers] = useState([]);
@@ -13,6 +14,7 @@ function App() {
   const [beerName, setBeerName] = useState(null);
   const [brewDate, setBrewDate] = useState(null);
   const [searchParams, setSearchParams] = useState({});
+  const [beerDetails, setBeerDetails] = useState(null);
 
   useEffect(() => {
     // this function is because useEffect's function cannot be async by itself.
@@ -32,9 +34,11 @@ function App() {
       setBeers(response);
     };
     updateBeers();
-  }, [page])
+  }, [page]);
+
   return (
     <div>
+      <BeerDetails beer={beerDetails} onClose={() => setBeerDetails(null)} />
       <Image className="logo-image" src={logo}/>
       <Input placeholder="Search by name" value={beerName} onChange={(event, { value }) => setBeerName(value !== "" ? value : null)} />
       <DateInput 
@@ -51,7 +55,7 @@ function App() {
         </Table.Row>
       </Table.Header>
       <Table.Body>
-        {beers.map((beer, index) => <Beer beer={beer} key={index}/>)}
+        {beers.map((beer, index) => <Beer beer={beer} key={index} onClick={(b) => setBeerDetails(b)} />)}
       </Table.Body>
       </Table>
         <Pagination
