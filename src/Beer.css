@@ -3,3 +3,7 @@
     width: auto;
     margin: auto;
 }
+
+.beer-row {
+    cursor: pointer;
+}
