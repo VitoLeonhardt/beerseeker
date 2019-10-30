@@ -47,7 +47,14 @@ function App() {
     }
     setSearchParams(params);
     setPage(1);
-    
+  }
+
+  const resetParams = () => {
+    setBeerName("");
+    setBeforeAfter(null);
+    setBrewDate(null);
+    setSearchParams({});
+    setPage(1);
   }
 
   return (
@@ -78,6 +85,7 @@ function App() {
       />
       <br/>
       <Button onClick={() => detailedSearch()}>Detailed search</Button>
+      <Button onClick={() => resetParams()}>Reset search</Button>
       <Table celled selectable>
       <Table.Header>
         <Table.Row>
