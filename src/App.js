@@ -9,10 +9,13 @@ import { getBeers } from "./utils.js";
 import { BeerDetails } from "./BeerDetails.js"
 
 function App() {
+
+  // I could've just used a single [state, getState], but I think it's actually more readable like this.
+  // Matter of opinion I suppose.
   const [beers, setBeers] = useState([]);
   const [page, setPage] = useState(1);
   const [beerName, setBeerName] = useState("");
-  const [brewDate, setBrewDate] = useState(null);
+  const [brewDate, setBrewDate] = useState(undefined);
   const [beforeAfter, setBeforeAfter] = useState(null);
   const [searchParams, setSearchParams] = useState({});
   const [beerDetails, setBeerDetails] = useState(null);
@@ -29,7 +32,6 @@ function App() {
   }, [beers]);
 
   useEffect(() => {
-    // this function is because useEffect's function cannot be async by itself.
     const updateBeers = async () => {
       const response = await getBeers({ page, per_page: 10, ...searchParams });
       setBeers(response);
@@ -61,22 +63,29 @@ function App() {
     <div>
       <BeerDetails beer={beerDetails} onClose={() => setBeerDetails(null)} />
       <Image className="logo-image" src={logo}/>
-      
-      <Input placeholder="Search by name" value={beerName} onChange={(event, { value }) => setBeerName(value !== "" ? value : null)} />
+      <Input
+        className="form-field" 
+        placeholder="Search by name" 
+        value={beerName} 
+        onChange={(event, { value }) => setBeerName(value !== "" ? value : null)} 
+      />
       <DateInput 
+        className="form-field"
         placeholder="Brew date before/after"
         dateFormat="MM-YYYY"
         value={brewDate}
         onChange={(event, { value }) => setBrewDate(value)}
       />
       <Radio
-            label="Before"
-            name="radioGroup"
-            value="before"
-            checked={beforeAfter === "before"}
-            onChange={(event, data) => setBeforeAfter(data.value)}
+        className="form-field"
+        label="Before"
+        name="radioGroup"
+        value="before"
+        checked={beforeAfter === "before"}
+        onChange={(event, data) => setBeforeAfter(data.value)}
       />
       <Radio
+        className="form-field"
         label="After"
         name="radioGroup"
         value="after"
@@ -84,8 +93,8 @@ function App() {
         onChange={(event, data) => setBeforeAfter(data.value)}
       />
       <br/>
-      <Button onClick={() => detailedSearch()}>Detailed search</Button>
-      <Button onClick={() => resetParams()}>Reset search</Button>
+      <Button className="form-field" onClick={() => detailedSearch()}>Detailed search</Button>
+      <Button className="form-field" onClick={() => resetParams()}>Reset search</Button>
       <Table celled selectable>
       <Table.Header>
         <Table.Row>

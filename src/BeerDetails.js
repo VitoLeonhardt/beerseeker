@@ -25,7 +25,7 @@ export const BeerDetails = ({ beer, onClose }) =>
                     <div className="beer-details-text"><b>Food pairings: </b>
                         <ul>
                             <>
-                            {beer.food_pairing.map((pairing) => <li>{pairing}</li>)}
+                            {beer.food_pairing.map((pairing) => <li key={pairing}>{pairing}</li>)}
                             </>
                         </ul>
                     </div>

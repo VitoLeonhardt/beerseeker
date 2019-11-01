@@ -3,3 +3,7 @@
   width: auto;
   margin: auto;
 }
+
+.form-field {
+  padding: 0.5rem;
+}
